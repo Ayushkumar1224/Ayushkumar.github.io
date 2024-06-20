@@ -19,19 +19,47 @@
                 color: hotpink;
                 font-size: 2em;
                 font-family: Georgia, "Times New Roman", Times, serif;
-                border-bottom: 10px dotted;
-                border-color:  purple;
+                border-bottom: 10px dotted purple;
             }
 
             h2 {
                 font-style: italic;
                 font-size: 1.5em;
-                font-weight: normal;
             }
 
             .job-title {
                 color: #999999;
                 font-weight: bold;
+            }
+
+            a:link, a:visited {
+                color: #fb6542;
+            }
+
+            a:hover {
+                color: green;
+                text-decoration: none;
+            }
+
+            .contact-info {
+                background-color: #eeeeee;
+                border: 5px solid purple;
+                padding: 10px; /* Padding to push content away from the border */
+                list-style-type: none;
+            }
+
+            .contact-info li {
+                margin-bottom: 10px;
+            }
+
+            /* Style for email link */
+            .contact-info .email {
+                color: green;
+            }
+
+            /* Style for web link */
+            .contact-info .web {
+                color: orange;
             }
 
             .description {
@@ -44,25 +72,30 @@
                 background-color: #eeeeee;
                 border: 5px solid purple;
                 padding: 10px;
-                list-style-type:none;
+                list-style-type: disc;
+                padding: 20px;
             }
 
             ul li {
                 margin-bottom: 5px;
             }
 
-            a:hover {
-                text-decoration: underline;
+            a:link {
+                color: #fb6542;
+            }
+
+            ul li .email{
                 color: green;
+                text-decoration: none;
             }
 
-            .email {
-                color: #00cc00;
+            a:hover {
+                color: green;
+                text-decoration: none;    
             }
 
-            .web {
-                color: #ff4500;
-            }
+            
+            
           </style>
     </head>
     <body>
@@ -81,15 +114,15 @@
             parts of sentences fly into your mouth. 
         </p>
 
-        <h2>Contact Information</h2>
+        <h2>Contact information</h2>
         <ul>
             <li>
                 Email:
-                <a href="mailto:ayushkumar.patel@dcmail.ca">ayushkumar.patel@dcmail.ca</a>
+                <a href="mailto:ayushkumar.patel@dcmail.ca" class="email">ayushkumar.patel@dcmail.ca</a>
             </li>
             <li>
                 Web:
-                <a href="https://example.com">https://example.com</a>
+                <a href="https://example.com" class="web">https://example.com</a>
             </li>
             <li>Tel: 123 45678</li>
         </ul>
