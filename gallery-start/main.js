@@ -10,7 +10,7 @@ const imageArray = ['gallery-start/images/pic1.jpg', 'gallery-start/images/pic2.
 /* Declaring the alternative text for each image file */
 
 const altTexts = {
-    'gallery-start/images/pic1.jpg': 'Image 1 description',
+    'gallery-start/images/pic1.jpg': 'Closeup of a human eye',
     'gallery-start/images/pic2.jpg': 'Image 2 description',
     'gallery-start/images/pic3.jpg': 'Image 3 description',
     'gallery-start/images/pic4.jpg': 'Image 4 description',
