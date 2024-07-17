@@ -11,8 +11,8 @@ const overlay = document.querySelector('.overlay');
 /* Looping through images */
 
 const newImage = document.createElement('img');
-newImage.setAttribute('src', xxx);
-newImage.setAttribute('alt', xxx);
+newImage.setAttribute('src', "gallery-start/images/pic2.jpg");
+newImage.setAttribute('alt', "gallery-start/images/pic3.jpg");
 thumbBar.appendChild(newImage);
 
 /* Wiring up the Darken/Lighten button */
