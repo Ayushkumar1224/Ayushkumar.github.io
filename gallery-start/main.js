@@ -5,43 +5,40 @@ const btn = document.querySelector('button');
 const overlay = document.querySelector('.overlay');
 
 /* Declaring the array of image filenames */
-const imageArray = ['gallery-start/images/pic1.jpg', 'gallery-start/images/pic2.jpg', 'gallery-start/images/pic3.jpg', 'gallery-start/images/pic4.jpg','gallery-start/images/pic5.jpg'];
 
-/* Declaring the alternative text for each image file */
-
-const altTexts = {
-    'gallery-start/images/pic1.jpg': 'Closeup of a human eye',
-    'gallery-start/images/pic2.jpg': 'Image 2 description',
-    'gallery-start/images/pic3.jpg': 'Image 3 description',
-    'gallery-start/images/pic4.jpg': 'Image 4 description',
-    'gallery-start/images/pic5.jpg': 'Image 5 description'
+const images = ['pic1.jpg', `pic2.jpg`, `pic3.jpg`, `pic4.jpg`, `pic5.jpg`];
+const alts = {
+  'pic1.jpg' : 'Closeup of a human eye',
+  'pic2.jpg' : 'Rock that looks like a wave',
+  'pic3.jpg' : 'Purple and white pansies',
+  'pic4.jpg' : 'Section of wall from a pharoah\'s tomb',
+  'pic5.jpg' : 'Large moth on a leaf'
 }
-/* Looping through images */
-for (let i = 0; i < imageArray.length; i++) {
-    const newImage = document.createElement('img');
-    const src = `gallery-start/images/${imageFilenames[i]}`;
-    const alt = altTexts[imageFilenames[i]];
-    
-    newImage.setAttribute('src', src);
-    newImage.setAttribute('alt', alt);
-    thumbBar.appendChild(newImage);
 
-/* Adding a click event listener to each thumbnail image */
-    newImage.addEventListener('click', (e) => {
-        displayedImage.setAttribute('src', e.target.getAttribute('src'));
-        displayedImage.setAttribute('alt', e.target.getAttribute('alt'));
-    });
+/* Looping through images */
+
+for (const image of images) {
+  const newImage = document.createElement('img');
+  newImage.setAttribute('src', `images/${image}`);
+  newImage.setAttribute('alt', alts[image]);
+  thumbBar.appendChild(newImage);
+  newImage.addEventListener('click', e => {
+    displayedImage.src = e.target.src;
+    displayedImage.alt = e.target.alt;
+  });
 }
 
 /* Wiring up the Darken/Lighten button */
+
 btn.addEventListener('click', () => {
-    const currentclass = btn.getAttribute('class');
-    if (currentclass === 'dark') {
-        btn.setAttribute('class', 'light');
-        overlay.style.backgrouncolor = 'rgba(0, 0, 0, 0.5)';
-    } else {
-        btn.setAttribute('class', 'dark');
-        btn.textContent = 'Darken';
-        overlay.style.backgrouncolor = 'rgba(0, 0, 0, 0)';
-    }
+  const btnClass = btn.getAttribute('class');
+  if (btnClass === 'dark') {
+    btn.setAttribute('class','light');
+    btn.textContent = 'Lighten';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+  } else {
+    btn.setAttribute('class','dark');
+    btn.textContent = 'Darken';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0)';
+  }
 });
