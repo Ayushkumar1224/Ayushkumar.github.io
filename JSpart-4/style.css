@@ -25,6 +25,10 @@ h1 {
     text-shadow: 0 0 4px white;
 }
 
+canvas{
+    display: black;
+}
+
 p {
     position: absolute;
     margin: 0;
