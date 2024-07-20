@@ -3,12 +3,12 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-const width = (canvas.width = windows.innerWidth);
-const height = (canvas.height = windows.innerHeight);
+const width = (canvas.width = window.innerWidth);
+const height = (canvas.height = window.innerHeight);
 
 // function to generate random number
 
-function random(min,max) {
+function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -35,7 +35,7 @@ class Ball {
 
     update() {
         if(this.x + this.size >= width) {
-            this.velX = Math.abs(this.velX);
+            this.velX = -Math.abs(this.velX);
         }
 
         if(this.x - this.size <= 0) {
@@ -43,7 +43,7 @@ class Ball {
         }
 
         if(this.y + this.size >= height) {
-            this.velY = Math.abs(this.velY);
+            this.velY = -Math.abs(this.velY);
         }
 
         if(this.y - this.size <= 0) {
@@ -88,7 +88,7 @@ class Ball {
     }
 
     function loop() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+        ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
         ctx.fillRect(0, 0, width, height);
 
         for(const ball of balls) {
