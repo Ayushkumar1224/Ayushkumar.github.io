@@ -1,47 +1,32 @@
-// functionality for showing/hiding the comments section
+// Wait until the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  const showHideButton = document.querySelector(".show-hide");
+  const commentWrapper = document.querySelector(".comment-wrapper");
 
-const showHideBtn = document.querySelector('.show-hide');
-const commentWrapper = document.querySelector('.comment-wrapper');
+  // Function to toggle the visibility of the comments section
+  function toggleComments() {
+    const isHidden = commentWrapper.style.display === "none";
 
-commentWrapper.style.display = 'none';
+    // Toggle the display
+    commentWrapper.style.display = isHidden ? "block" : "none";
 
-showHideBtn.onclick = function() {
-  let showHideText = showHideBtn.textContent;
-  if(showHideText === 'Show comments') {
-    showHideBtn.textContent = 'Hide comments';
-    commentWrapper.style.display = 'block';
-  } else {
-    showHideBtn.textContent = 'Show comments';
-    commentWrapper.style.display = 'none';
+    // Update button text and aria-expanded attribute
+    showHideButton.textContent = isHidden ? "Hide comments" : "Show comments";
+    showHideButton.setAttribute("aria-expanded", isHidden ? "true" : "false");
   }
-};
 
-// functionality for adding a new comment via the comments form
+  // Initially hide the comments section
+  commentWrapper.style.display = "none";
+  showHideButton.setAttribute("aria-expanded", "false");
 
-const form = document.querySelector('.comment-form');
-const nameField = document.querySelector('#name');
-const commentField = document.querySelector('#comment');
-const list = document.querySelector('.comment-container');
+  // Event listener for click event on the button
+  showHideButton.addEventListener("click", toggleComments);
 
-form.onsubmit = function(e) {
-  e.preventDefault();
-  submitComment();
-};
-
-function submitComment() {
-  const listItem = document.createElement('li');
-  const namePara = document.createElement('p');
-  const commentPara = document.createElement('p');
-  const nameValue = nameField.value;
-  const commentValue = commentField.value;
-
-  namePara.textContent = nameValue;
-  commentPara.textContent = commentValue;
-
-  list.appendChild(listItem);
-  listItem.appendChild(namePara);
-  listItem.appendChild(commentPara);
-
-  nameField.value = '';
-  commentField.value = '';
-}
+  // Make the button keyboard accessible
+  showHideButton.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault(); // Prevent default space/enter behavior
+      toggleComments();
+    }
+  });
+});
